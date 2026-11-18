@@ -41,6 +41,10 @@ if (file_exists($file)) {
 <body>
 
 <!-- html  -->
+ <!-- somehwere near the end put 
+      <a href="index.php">play again</a> | <a href="logout.php">log out</a>
+so player can log out and start a new game or just start a new game without logging out. -->
+
 
 </body>
 </html>

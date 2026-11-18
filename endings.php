@@ -59,6 +59,7 @@ $choiceLog = $_SESSION['choice_log'] ?? [];
 
       <!-- play again button to restart the session -->
       <a href="index.php">play again </a>
+      <a href="index.php">play again</a> | <a href="logout.php">log out</a>
     </div>
 
   </div>

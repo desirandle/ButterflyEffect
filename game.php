@@ -285,6 +285,13 @@ if ($currentNode === 'throne_room') {
 </head>
 <body>
 
+<!-- 
+i did the html for the game php bc it heavily involved the php logic and it can be hard to separate the two and i didnt wanna burden 
+you with that. added a warning for hp costs and hp heals so the player knows what they are getting into, a preview 
+of the consequences of their choices, and a sidebar that shows the players stats and their story path log so they can see how far they have come. 
+feel free to change this if you want! its more of a base if anthing. -->
+ 
+
   <div class="game-container">
 
     <!-- left side of screen. story box and choices -->
