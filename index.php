@@ -57,36 +57,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Your Hero | Butterfly Effect</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=creation-fix">
 </head>
-<body class="world-page creation-page">
+<body class="auth-page creation-page">
 
  <!-- php logic is fully set up and should run correctly. -->
 
-    <div class="sky-stars" aria-hidden="true"></div>
-    <main class="page-shell">
-        <header class="site-header">
-            <a href="login.php" class="brand" aria-label="Butterfly Effect home">
+    <main class="auth-layout">
+        <section class="story-panel" aria-labelledby="creation-title">
+            <a href="login.php" class="brand" aria-label="Butterfly Effect login">
                 <span class="brand-mark" aria-hidden="true">✦</span>
                 <span>BUTTERFLY EFFECT</span>
             </a>
-            <span class="header-label">CHARACTER CREATION</span>
-        </header>
 
-        <div class="creation-layout">
-            <section class="intro-panel" aria-labelledby="creation-title">
+            <div class="story-art" aria-hidden="true">
+                <div class="moon-ring"></div>
+                <img src="butterfly.png" alt="" class="butterfly-art">
+                <span class="spark spark-one">✦</span>
+                <span class="spark spark-two">✧</span>
+            </div>
+
+            <div class="story-copy">
                 <p class="eyebrow">THE FIRST CHOICE</p>
                 <h1 id="creation-title">Every legend begins with a <em>name.</em></h1>
-                <p class="intro-description">The road ahead changes with every choice. Before the adventure begins, choose who will walk it.</p>
-                <div class="creation-art" aria-hidden="true">
-                    <div class="creation-ring"></div>
-                    <img src="butterfly.png" alt="" class="creation-butterfly">
-                </div>
-                <p class="intro-hint">Three paths. One journey. Your choices shape the ending.</p>
-            </section>
+                <p>The road ahead changes with every choice. Before the adventure begins, choose who will walk it.</p>
+            </div>
+            <p class="story-footer">THREE PATHS. ONE JOURNEY. <span aria-hidden="true">✧</span></p>
+        </section>
 
-            <section class="creation-card" aria-labelledby="hero-heading">
-                <p class="eyebrow">YOUR ADVENTURE AWAITS</p>
+        <section class="form-panel" aria-labelledby="hero-heading">
+            <div class="form-content">
+                <p class="eyebrow form-kicker">YOUR ADVENTURE AWAITS</p>
                 <h2 id="hero-heading">Create your hero</h2>
                 <p class="form-subtitle">Choose a name and a class to begin.</p>
 
@@ -130,8 +131,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <button type="submit" class="submit-btn">Begin your adventure <span aria-hidden="true">→</span></button>
                 </form>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>

@@ -97,7 +97,7 @@ button, input { font: inherit; }
                 linear-gradient(155deg, #241b3c, #101827);
 }
 /* The small stars stay behind the text. */
-.story-panel::before, .sky-stars {
+.story-panel::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -146,7 +146,7 @@ button, input { font: inherit; }
 .spark-three { bottom: 45px; right: 39px; font-size: 15px; }
 .story-copy { max-width: 390px; margin-top: auto; }
 .story-copy h1 { margin: 13px 0; font-size: clamp(30px, 3.2vw, 43px); line-height: 1.2; }
-.story-copy h1 em, .intro-panel h1 em { color: #d9baff; font-weight: normal; }
+.story-copy h1 em { color: #d9baff; font-weight: normal; }
 .story-copy > p:last-child { color: #c8bdd5; font-size: 14px; line-height: 1.7; }
 .story-footer {
     display: flex;
@@ -182,56 +182,19 @@ button, input { font: inherit; }
 .register-page .field { margin-bottom: 15px; }
 .register-page .form-subtitle { margin-bottom: 24px; }
 
-/* Character creation uses the same panels, colors, and buttons. */
-.world-page { position: relative; isolation: isolate; }
-.sky-stars { position: fixed; z-index: -1; }
-.page-shell { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
-.site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 26px 0; }
-.header-label { color: var(--muted); font-size: 11px; letter-spacing: 2px; }
-.creation-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: center;
-    padding: 35px 0 60px;
-}
-.intro-panel { position: relative; min-height: 570px; padding: 55px 10px; }
-.intro-panel h1 { max-width: 500px; margin: 16px 0; font-size: clamp(38px, 5vw, 60px); line-height: 1.1; }
-.intro-description { max-width: 430px; color: var(--muted); line-height: 1.7; }
-.creation-art {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 280px;
-    height: 240px;
-    margin-top: 25px;
-}
-.creation-ring {
-    position: absolute;
-    width: 210px;
-    height: 210px;
-    border: 1px solid #c7a2ec77;
-    border-radius: 50%;
-}
-.creation-butterfly { width: 185px; filter: drop-shadow(0 0 16px #ba8eea88); }
-.intro-hint { color: var(--gold); font-size: 13px; }
-.creation-card, .story-box, .sidebar, .leaderboard-card, .ending-summary {
-    padding: 32px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    background: #17182af2;
-    box-shadow: 0 18px 45px #0005;
-}
-.creation-card h2 { margin: 12px 0; font-size: 32px; }
-.class-picker { margin: 12px 0 20px; padding: 0; border: 0; }
+/* Character creation reuses the login layout. */
+.creation-page .auth-layout, .creation-page .story-panel { min-height: 745px; }
+.creation-page .form-content { max-width: 380px; }
+.creation-page .form-subtitle { margin-bottom: 24px; }
+.class-picker { margin: 15px 0 20px; padding: 0; border: 0; }
 .class-picker legend { margin-bottom: 8px; font-weight: bold; }
 .class-instruction { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
 .class-option {
     display: flex;
-    gap: 12px;
     align-items: center;
+    gap: 12px;
     margin-bottom: 10px;
-    padding: 14px;
+    padding: 12px 14px;
     border: 1px solid var(--border);
     border-radius: 9px;
     background: #202036;
@@ -316,7 +279,7 @@ button, input { font: inherit; }
 /* Keep the same look on smaller screens. */
 @media (max-width: 800px) {
     .auth-page { padding: 16px; }
-    .auth-layout, .creation-layout, .game-container { grid-template-columns: 1fr; }
+    .auth-layout, .game-container { grid-template-columns: 1fr; }
     .auth-layout { max-width: 540px; }
     .story-panel { min-height: 250px; padding: 30px; }
     .story-art {
@@ -334,18 +297,12 @@ button, input { font: inherit; }
     .story-copy > p:last-child, .story-footer { display: none; }
     .form-panel { padding: 38px 30px; }
     .register-page .auth-layout, .register-page .story-panel { min-height: 0; }
-    .creation-layout { gap: 18px; padding-top: 0; }
-    .intro-panel { min-height: auto; padding: 25px 0 10px; }
-    .creation-art { margin: 0; height: 150px; width: 190px; }
-    .creation-ring { width: 140px; height: 140px; }
-    .creation-butterfly { width: 125px; }
+    .creation-page .auth-layout, .creation-page .story-panel { min-height: 0; }
     .game-container { margin-top: 20px; }
 }
 @media (max-width: 480px) {
-    .form-panel, .creation-card, .story-box, .sidebar, .ending-summary { padding: 24px; }
+    .form-panel, .story-box, .sidebar, .ending-summary { padding: 24px; }
     .story-panel { padding: 25px; }
-    .site-header { flex-wrap: wrap; }
-    .intro-panel h1 { font-size: 38px; }
     .score-table th, .score-table td { padding: 10px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
