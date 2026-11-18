@@ -42,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['node'] = 'start';
     // tracks what choices the player makes from this point on 
     $_SESSION['choices_log'] = [];
+    $_SESSION['choice_log'] = [];
+    unset($_SESSION['weapon'], $_SESSION['score_saved']);
 
     // takes the player to the game page
     header('Location: game.php');
@@ -53,11 +55,83 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Index Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Hero | Butterfly Effect</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="world-page creation-page">
 
  <!-- php logic is fully set up and should run correctly. -->
 
+    <div class="sky-stars" aria-hidden="true"></div>
+    <main class="page-shell">
+        <header class="site-header">
+            <a href="login.php" class="brand" aria-label="Butterfly Effect home">
+                <span class="brand-mark" aria-hidden="true">✦</span>
+                <span>BUTTERFLY EFFECT</span>
+            </a>
+            <span class="header-label">CHARACTER CREATION</span>
+        </header>
+
+        <div class="creation-layout">
+            <section class="intro-panel" aria-labelledby="creation-title">
+                <p class="eyebrow">THE FIRST CHOICE</p>
+                <h1 id="creation-title">Every legend begins with a <em>name.</em></h1>
+                <p class="intro-description">The road ahead changes with every choice. Before the adventure begins, choose who will walk it.</p>
+                <div class="creation-art" aria-hidden="true">
+                    <div class="creation-ring"></div>
+                    <img src="butterfly.png" alt="" class="creation-butterfly">
+                </div>
+                <p class="intro-hint">Three paths. One journey. Your choices shape the ending.</p>
+            </section>
+
+            <section class="creation-card" aria-labelledby="hero-heading">
+                <p class="eyebrow">YOUR ADVENTURE AWAITS</p>
+                <h2 id="hero-heading">Create your hero</h2>
+                <p class="form-subtitle">Choose a name and a class to begin.</p>
+
+                <form action="index.php" method="post" class="hero-form">
+                    <div class="field">
+                        <label for="hero-name">Hero name</label>
+                        <input type="text" id="hero-name" name="username" placeholder="Enter your hero's name" maxlength="40" required>
+                    </div>
+
+                    <fieldset class="class-picker">
+                        <legend>Choose your class</legend>
+                        <p class="class-instruction">Each class starts with different strengths.</p>
+
+                        <label class="class-option">
+                            <input type="radio" name="hero_class" value="Warrior" required>
+                            <span class="class-details">
+                                <span class="class-heading"><span class="class-symbol" aria-hidden="true">⚔</span> Warrior</span>
+                                <span class="class-summary">High health and strength</span>
+                                <span class="class-stats">120 HP <span>·</span> 20 STR <span>·</span> 5 MAG</span>
+                            </span>
+                        </label>
+
+                        <label class="class-option">
+                            <input type="radio" name="hero_class" value="Mage">
+                            <span class="class-details">
+                                <span class="class-heading"><span class="class-symbol" aria-hidden="true">✧</span> Mage</span>
+                                <span class="class-summary">Powerful magic, lower defenses</span>
+                                <span class="class-stats">90 HP <span>·</span> 5 STR <span>·</span> 20 MAG</span>
+                            </span>
+                        </label>
+
+                        <label class="class-option">
+                            <input type="radio" name="hero_class" value="Rogue">
+                            <span class="class-details">
+                                <span class="class-heading"><span class="class-symbol" aria-hidden="true">☽</span> Rogue</span>
+                                <span class="class-summary">Balanced and adaptable</span>
+                                <span class="class-stats">105 HP <span>·</span> 12 STR <span>·</span> 10 MAG</span>
+                            </span>
+                        </label>
+                    </fieldset>
+
+                    <button type="submit" class="submit-btn">Begin your adventure <span aria-hidden="true">→</span></button>
+                </form>
+            </section>
+        </div>
+    </main>
 </body>
-</html>    
+</html>
