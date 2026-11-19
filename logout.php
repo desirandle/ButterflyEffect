@@ -6,7 +6,7 @@ session_unset();
 session_destroy();
 
 // send the player back to the starting page
-header('Location: index.php');
+header('Location: login.php');
 exit;
 ?>
 

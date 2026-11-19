@@ -1,0 +1,4 @@
+Mako|Mage|40|tragic_failure
+mako|Mage|90|heroic_victory
+Testing 3|Mage|0|tragic_failure
+Testing5|Warrior|90|tragic_failure
